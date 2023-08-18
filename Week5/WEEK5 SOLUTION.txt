@@ -1,0 +1,31 @@
+import csv
+
+with open('student.csv','w',newline='')as f:
+    w=csv.writer(f)
+    header=['sid','sname','city','contact']
+    w.writerow(header)
+
+#Insert 5 Records Directly
+    row=[[1,'om','surat',1234567890],
+         [2,'sai','bardoli',4987654323],
+         [3,'ram','baben',1234907865],
+         [4,'radha','mandvi',1954832763],
+         [5,'kishan','mota',2288115544]]
+    w.writerows(row)
+
+
+#Insert 5 Records Take Input From User 
+    for i in range(5):
+        sid=int(input("Enter Student id:"))
+        sname=input("Enter Student name:")
+        city=input("Enter Student city:")
+        contact=input("Enter Student contact:")
+        row=[sid,sname,city,contact]
+        w.writerow(row)
+
+
+#Read Records From CSV File
+with open('student.csv','r') as read:
+    r=csv.reader(read)
+    for i in r:
+        print(i)
